@@ -32,8 +32,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./CI-CD-PORTAINER-PIPELINE/api   # Specify the correct folder where the Dockerfile and code are located
+          file: ./ci-cd/api/Dockerfile  # Path to your Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
