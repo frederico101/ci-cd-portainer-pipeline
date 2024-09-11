@@ -1,0 +1,49 @@
+name: CI-CD test-api
+
+on:
+  push:
+    branches:
+      - "feature/portainer-gitactions"
+  # pull_request:
+  #   branches:
+  #     - "feature/docker"
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: "fredericobolsamaisbrasil/test-api"
+   
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3.3.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+      - name: Portainer Service Webhook
+            # uses: newarifrh/portainer-service-webhook@b6ec54b0c9d76cc7317fde47318a48f4553ebf1b
+        uses: newarifrh/portainer-service-webhook@v1
+        with:
+              # Put service webhook url in here (example: http://example.com:9000/api/webhooks/dab4a378-57d0-4fef-a93a-6f5de18a5083)
+          webhook_url: https://devops.bolsamaisbrasil.com.br:9443/api/stacks/webhooks/c05c6d5d-ee69-473d-8560-8c6be9e85398
+          
