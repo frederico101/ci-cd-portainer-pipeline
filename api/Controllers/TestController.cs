@@ -19,8 +19,8 @@ public class TestController : ControllerBase
     }
 
     [HttpGet(Name = "Get")]
-    public IActionResult Get()
+    public string Get()
     {
-        return Ok("hi");
+        return "opa";
     }
 }
