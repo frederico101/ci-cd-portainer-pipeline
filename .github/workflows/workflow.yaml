@@ -38,6 +38,10 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
+      - name: Test Webhook URL
+        run: |
+          curl -v -X POST https://1155-2804-7540-1000-277-518f-a52b-d8fb-c856.ngrok-free.app/api/webhooks/50a828ca-4085-4cfc-a861-bc730dacaf48
+
       - name: Portainer Service Webhook
         uses: newarifrh/portainer-service-webhook@v1
         with:
