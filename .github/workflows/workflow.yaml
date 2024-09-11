@@ -44,5 +44,5 @@ jobs:
       - name: Portainer Service Webhook
         uses: newarifrh/portainer-service-webhook@v1
         with:
-          webhook_url: https://1155-2804-7540-1000-277-518f-a52b-d8fb-c856.ngrok-free.app/api/webhooks/eb6c8ab6-465b-4a5b-beb5-e30aa7fda7c4
+          webhook_url: https://1155-2804-7540-1000-277-518f-a52b-d8fb-c856.ngrok-free.app/api/stacks/webhooks/350f14fa-73ef-42d6-8727-6fc26a5be3b1
           #webhook_url: https://1155-2804-7540-1000-277-518f-a52b-d8fb-c856.ngrok-free.app/api/stacks/webhooks/3c70c075-4b58-4ac3-bb86-fac5f660bf3d
