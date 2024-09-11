@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./CI-CD-PORTAINER-PIPELINE/api   # Specify the correct folder where the Dockerfile and code are located
-          file: ./ci-cd/api/Dockerfile  # Path to your Dockerfile
+          file: ./CI-CD-PORTAINER-PIPELINE/api/Dockerfile  # Path to your Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
