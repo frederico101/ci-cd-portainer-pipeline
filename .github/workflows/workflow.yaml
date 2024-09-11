@@ -54,7 +54,28 @@ jobs:
         with:
         # portainer server url
             serverurl: https://1155-2804-7540-1000-277-518f-a52b-d8fb-c856.ngrok-free.app
+            # portainer admin user name
+            username: # optional
+            # portainer admin user password
+            password: # optional
+            # portainer account access token
+            access_token: # optional
+            # portainer EndpointId,default 1
+            endpointId: # optional, default is 1
             # name of stack, lowercase
-            stackname: cicdstack
-            env: local
+            stackname: 
+            # names of pull images, a arrary
+            imagenames: # optional
+            # environments of stack
+            env: # optional
+            # these variables will be replaced in docker-compose file
+            variables: # optional
+            # content of docker-compose.yml
+            docker_compose: # optional
+            # docker-compose.yml in repository relative path
+            docker_compose_path: # optional
+            # username of git repository
+            repo_username: # optional
+            # password of git repository
+            repo_password: # optional
                     
