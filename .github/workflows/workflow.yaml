@@ -3,7 +3,7 @@ name: CI-CD test-api
 on:
   push:
     branches:
-      - "feature/portainer-gitactions"
+      - "master"
   # pull_request:
   #   branches:
   #     - "feature/docker"
@@ -45,5 +45,5 @@ jobs:
         uses: newarifrh/portainer-service-webhook@v1
         with:
               # Put service webhook url in here (example: http://example.com:9000/api/webhooks/dab4a378-57d0-4fef-a93a-6f5de18a5083)
-          webhook_url: https://devops.bolsamaisbrasil.com.br:9443/api/stacks/webhooks/c05c6d5d-ee69-473d-8560-8c6be9e85398
+          webhook_url: https://localhost:9443/api/webhooks/eb6c8ab6-465b-4a5b-beb5-e30aa7fda7c4
           
