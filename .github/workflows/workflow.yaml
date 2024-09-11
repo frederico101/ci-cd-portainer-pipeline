@@ -7,6 +7,7 @@ on:
   # pull_request:
   #   branches:
   #     - "feature/docker"
+
 env:
   REGISTRY: docker.io
   IMAGE_NAME: "fredericobolsamaisbrasil/test-api"
@@ -17,8 +18,8 @@ jobs:
     permissions:
       contents: read
       packages: write
-    steps:
 
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -41,9 +42,7 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Portainer Service Webhook
-            # uses: newarifrh/portainer-service-webhook@b6ec54b0c9d76cc7317fde47318a48f4553ebf1b
         uses: newarifrh/portainer-service-webhook@v1
         with:
-              # Put service webhook url in here (example: http://example.com:9000/api/webhooks/dab4a378-57d0-4fef-a93a-6f5de18a5083)
-          webhook_url: https://localhost:9443/api/webhooks/eb6c8ab6-465b-4a5b-beb5-e30aa7fda7c4
+          webhook_url: https://1155-2804-7540-1000-277-518f-a52b-d8fb-c856.ngrok-free.app/api/webhooks/eb6c8ab6-465b-4a5b-beb5-e30aa7fda7c4
           
