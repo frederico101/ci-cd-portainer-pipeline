@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .  # Path to the directory containing the Dockerfile
+      dockerfile: Dockerfile  # Path to the Dockerfile if it's named differently
+    ports:
+      - "80:80"  # Maps port 80 on the host to port 80 in the container
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    # Uncomment the following lines if you need to connect to other services
+    # depends_on:
+    #   - some-other-service
+    # networks:
+    #   - my-network
+
+# Uncomment and configure networks if needed
+# networks:
+#   my-network:
+#     driver: bridge
